@@ -6,7 +6,10 @@
     <span class="weight-weight" (click)="onSelect(weight)"
       ><b>{{ weight.weight }}</b> Kg</span
     >
-    <span class="weight-date">{{ weight.date.toLocaleDateString() }}</span>
+    <span class="weight-date">{{ weight.date | date }}</span>
     <i class="fa fa-times text-danger" (click)="onDelete(weight.date)"></i>
+  </li>
+  <li class="list-group-item bg-light text-center">
+    Average Weight: {{ avgWeight }} Kg
   </li>
 </ul>

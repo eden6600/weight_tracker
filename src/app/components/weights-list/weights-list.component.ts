@@ -10,11 +10,18 @@ import { WeightService } from '../../services/weight.service';
 })
 export class WeightsListComponent implements OnInit {
   weights: Weight[];
+  avgWeight: number;
   constructor(private weightService: WeightService) {}
 
   ngOnInit() {
     this.weightService.getWeights().subscribe(weights => {
       this.weights = weights;
+
+      let totalWeight = 0;
+      this.weights.forEach(weight => {
+        totalWeight += weight.weight;
+      });
+      this.avgWeight = totalWeight / this.weights.length;
     });
   }
 

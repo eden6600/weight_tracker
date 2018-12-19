@@ -48,10 +48,4 @@ export class WeightFormComponent implements OnInit {
     this.date = null;
     this.isNew = true;
   }
-
-  onCancel() {
-    this.isNew = true;
-    this.weight = null;
-    this.date = null;
-  }
 }

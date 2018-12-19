@@ -24,6 +24,7 @@ export class WeightService {
   getWeights(): Observable<Weight[]> {
     if (localStorage.getItem('weights') !== null) {
       this.weights = JSON.parse(localStorage.getItem('weights'));
+      this.weights.forEach(weight => (weight.date = new Date(weight.date)));
     }
 
     return of(this.weights);
@@ -55,7 +56,8 @@ export class WeightService {
 
   removeDuplicate(date: any) {
     this.weights.forEach((weight, index) => {
-      if (weight.date.toLocaleDateString() === date.toLocaleDateString()) {
+      console.log(typeof weight.date);
+      if (weight.date.getDate() === date.getDate()) {
         this.weights.splice(index, 1);
       }
     });
