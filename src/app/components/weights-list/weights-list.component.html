@@ -1,0 +1,12 @@
+<ul class="list-group" [hidden]="!this.weights">
+  <li
+    class="list-group-item d-flex justify-content-between animated flipInX"
+    *ngFor="let weight of weights"
+  >
+    <span class="weight-weight" (click)="onSelect(weight)"
+      ><b>{{ weight.weight }}</b> Kg</span
+    >
+    <span class="weight-date">{{ weight.date.toLocaleDateString() }}</span>
+    <i class="fa fa-times text-danger" (click)="onDelete(weight.date)"></i>
+  </li>
+</ul>

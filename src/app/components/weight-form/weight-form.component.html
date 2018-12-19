@@ -1,0 +1,30 @@
+<div class="card card-body mb-3">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Add a weight..."
+        [(ngModel)]="weight"
+        name="weight"
+      />
+    </div>
+    <input
+      *ngIf="isNew"
+      type="submit"
+      class="btn btn-dark"
+      value="Add Weight"
+      [disabled]="!this.weight"
+    />
+    <input
+      *ngIf="!isNew"
+      type="submit"
+      class="btn btn-dark mr-2"
+      value="Update {{date.toLocaleDateString()}}"
+      [disabled]="!this.weight"
+    />
+    <button class="btn btn-danger" *ngIf="!isNew" (click)="onCancel()">
+      Cancel
+    </button>
+  </form>
+</div>
